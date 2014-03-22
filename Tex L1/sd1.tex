@@ -227,29 +227,36 @@ Requisitos de implementação:
 \begin{equation}
 \begin{split}
 S_1(A_1,A_0,B_1,B_0) & = A_0\overline{B_1}B_0 + A_1B_1 \\
-       & = \overline{\overline{((A_0 \cdot \overline{B_1} \cdot B_0)+(A_1 \cdot B_1))}}  \\   
-       & = \overline{\overline{(\overline{(\overline{A_0} + B_1 + \overline{B_0})}+\overline{(\overline{A_1} + \overline{B_1})})}}  \\   
+                     & = \overline{\overline{\overline{\overline{(A_0} + B_1 + 
+                         \overline{B_0)}}+\overline{\overline{(A_1} + \overline{B_1)}}}}  \\   
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
 C_0(A_1,A_0,B_1,B_0) & = A_0\overline{B_0} + A_1B_0 \\
-       & = \overline{\overline{(A_0 \cdot \overline{B_0}) + (A_1 \cdot B_0)}}  \\   
-       & = \overline{\overline{(\overline{\overline{A_0} + B_0}) + (\overline{\overline{A_1} + \overline{B_0})}}}  \\   
+                     & = \overline{\overline{\overline{\overline{(A_0} + B_0)} 
+                         + \overline{\overline{(A_1} + \overline{B_0)}}}}  \\   
 \end{split}
 \end{equation}
+\begin{enumerate}
+    \item 1x NOR-3
+    \item 5x NOR-2
+    \item 6x NOT
+  \end{enumerate}
+attn fiz isto  á pressa verificar sff
 \par
 \item A partir da forma conjutiva
 \begin{equation}
 \begin{split}
 S_1(A_1,A_0,B_1,B_0) & = (B_0)(A_1+\overline{B_1})(A_0+B_1) \\
-	& = \overline{(\overline{B_0}+\overline{(A_1+\overline{B_1})}+\overline{(A_0+B_1)})}\\
+                     & = \overline{\overline{B_0}+\overline{(A_1+\overline{B_1)}}
+                         +\overline{(A_0+B_1)}}\\
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
 C_0(A_1,A_0,B_1,B_0) & = (A_0+B_0)(A_1+\overline{B_0}) \\
-	& = \overline{(\overline{(A_0+B_0)}+\overline{(A_1+\overline{B_0})})}\\
+                     & = \overline{\overline{(A_0+B_0)}+\overline{(A_1+\overline{B_0)}}}\\
 \end{split}
 \end{equation}
 
