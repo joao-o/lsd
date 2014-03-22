@@ -155,18 +155,22 @@ S_0(A_1,A_0,B_1,B_0) = (B_1+\overline{B_0})(A_1+\overline{B_0})(A_1+B_0)
 C_0(A_1,A_0,B_1,B_0) = (A_0+B_0)(A_1+\overline{B_0})
 \end{equation}
 
+\pagebreak
+
 \subsection{Funções a construir}
 
 Sendo os nossos números 79144 e 78811 respetivamente então:
 
 \begin{equation}
-78811 + 79144 = 157955
 \end{equation}
 \begin{equation}
 157955/3 = 52651 + 2/3
 \end{equation}
 
-Sendo o último algarismo de um número inteiro em base três dado pelo resto da primeira divisão desse número por três, podemos ver na operação aritmética apresentada em (8) que o algarismo menos significativo da soma dos nossos números é 2. Logo, apenas realizaremos a função S\textsubscript{1} e C\textsubscript{0}. 
+Sendo o último algarismo de um número inteiro em base três dado pelo resto
+da primeira divisão desse número por três, podemos ver na operação aritmética
+apresentada em (8) que o algarismo menos significativo da soma dos nossos números
+é 2. Logo, apenas realizaremos a função S\textsubscript{1} e C\textsubscript{0}. 
 
 \subsection{Transformação das expressões algébricas}
 
@@ -176,28 +180,47 @@ Sendo o último algarismo de um número inteiro em base três dado pelo resto da
 \begin{equation}
 \begin{split}
 S_1(A_1,A_0,B_1,B_0) & = A_0\overline{B_1}B_0 + A_1B_1 \\
-       & = \overline{(\overline{(A_0 \cdot \overline{B_1} \cdot B_0)}\cdot\overline{(A_1 \cdot B_1)})}  \\   
+                     & = \overline{\overline{((A_0\overline{B_1}B_0)}
+                         ~\overline {(A_1B_1))}}  \\  
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
 C_0(A_1,A_0,B_1,B_0) & = A_0\overline{B_0} + A_1B_0 \\
-       & = \overline{(\overline{(A_0 \cdot \overline{B_0})}\cdot\overline{(A_1 \cdot B_0)})}  \\   
+                     & = \overline{\overline{((A_0 \overline{B_0})}
+                         ~\overline{(A_1 B_0))}}  \\   
 \end{split}
 \end{equation}
-
 Requisitos de implementação:
 \begin{enumerate}
     \item 1x NAND-3
     \item 5x NAND-2
     \item 2x NOT
   \end{enumerate}
-
 \item A partir da forma conjutiva
+\begin{equation}
+\begin{split}
+S_1(A_1,A_0,B_1,B_0) & = B_0~(A_0+B_1)~(\overline{B_1}+A_1) \\
+                     & = \overline{\overline{B_0~\overline{\overline{(A_0}~\overline{B_1)}}
+                     ~\overline{(B_1~\overline{A_1)}}}} \\
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+C_0(A_1,A_0,B_1,B_0) & = (A_0+B_0)~(A_1+\overline{B_0}) \\
+                     & = \overline{\overline{\overline{\overline{(A_0}~\overline{B_0)}}
+                     ~\overline{\overline{(A_1}~B_0)}}} \\
+\end{split}
+\end{equation}
 
+\pagebreak
+Requisitos de implementação:
+\begin{enumerate}
+    \item 1x NAND-3
+    \item 5x NAND-2
+    \item 6x NOT
+  \end{enumerate}
 \end{enumerate}
-
-
 \subsubsection{De forma a serem concretizadas com portas NOR-2, NOR-3 e NOT}
 \begin{enumerate}
 \item A partir da forma disjuntiva
@@ -215,12 +238,6 @@ C_0(A_1,A_0,B_1,B_0) & = A_0\overline{B_0} + A_1B_0 \\
        & = \overline{\overline{(\overline{\overline{A_0} + B_0}) + (\overline{\overline{A_1} + \overline{B_0})}}}  \\   
 \end{split}
 \end{equation}
-Requisitos de implementação:
-\begin{enumerate}
-    \item 1x NOR-3
-    \item 5x NOR-2
-    \item 6x NOT
-  \end{enumerate}
 \par
 \item A partir da forma conjutiva
 \begin{equation}
