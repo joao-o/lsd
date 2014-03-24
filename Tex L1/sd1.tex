@@ -162,6 +162,7 @@ C_0(A_1,A_0,B_1,B_0) = (A_0+B_0)(A_1+\overline{B_0})
 Sendo os nossos números 79144 e 78811 respetivamente então:
 
 \begin{equation}
+78811 + 79144 = 157955
 \end{equation}
 \begin{equation}
 157955/3 = 52651 + 2/3
@@ -243,7 +244,7 @@ C_0(A_1,A_0,B_1,B_0) & = A_0\overline{B_0} + A_1B_0 \\
     \item 5x NOR-2
     \item 6x NOT
   \end{enumerate}
-attn fiz isto  á pressa verificar sff
+
 \par
 \item A partir da forma conjutiva
 \begin{equation}
@@ -267,7 +268,75 @@ Requisitos de implementação:
     \item 2x NOT
   \end{enumerate}
 \end{enumerate}
+
+\subsection{Diagrama Lógico}
+
+Das várias opções analisadas em cima, optámos pela implementação com portas NAND a partir da forma disjuntiva, necessitando apenas de duas portas NOT, cinco NAND-2 e um NAND-3. Seguiremos assim o diagrama apresentado na Figura 2.
+\begin{figure}[h]
+\caption{Diagrama Lógico}
+\begin{center}
+\includegraphics[scale=0.45]{SD_logi.png}
+\end{center}
+\end{figure}
+
+\subsection{Valor Lógico não especificado}
+
+Segundo as expressões optadas, na situação A=1 e B=2, de valor não determinado, terão valores lógicos:
+
+\begin{equation}
+\begin{split}
+S_1(0,1,1,0) & = 1\cdot\overline{1}\cdot0 + 0\cdot1\\
+                     & = 0 + 0 = 0  \\  
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+C_0(0,1,1,0) & = 1\cdot\overline{0} + 0\cdot0 \\
+                     & = 1\cdot1 + 0 = 1  \\   
+\end{split}
+\end{equation}
+
+\subsection{Esquema Eléctrico}
+
+\section{Montagem e Verificação}
+\subsection{Montagem}
+Montou-se o circuito na {\it breadboard} utilizando os circuitos requisitados.
+\subsection{Utilização da Ponta de Prova}
+\vspace*{7\baselineskip}
+\subsection{Teste do circuito}
+\vspace*{4\baselineskip}
+
+\begin{table}
+\centering
+\begin{tabular}{ || c  c | c c || c | c | c || c | c |c || }
+\hline 
+\multicolumn{4}{||c||}{Valores de entrada} & \multicolumn{3}{c||}{Valores Esperados} & \multicolumn{3}{c||}{Valores de Saída} \\
+  \hline
+A\textsubscript{1} & A\textsubscript{0} & B\textsubscript{1} & B\textsubscript{0} & S\textsubscript{1} & S\textsubscript{0} & C\textsubscript{0} & S\textsubscript{1} & S\textsubscript{0} & C\textsubscript{0} \\ \hline
+0   & 0  & 0  & 0  & L  & L  & L &&& \\ \hline
+0   & 0  & 0  & 1  & L  & L  & L &&&\\ \hline
+0   & 0  & 1  & 0  & X  & X  & X  &&&\\ \hline
+0   &  0  & 1   & 1   & L   & L   & X &&&\\ \hline
+0   &  1  &  0  & 0   & L   & L   & H  &&&\\ \hline
+0   &  1  &  0  & 1   & H   & L   & L  &&&\\ \hline
+0   &  1  &  1  & 0   & X   & X   & X  &&&\\ \hline
+0   &  1  &  1  & 1   & L   & H   & X  &&&\\ \hline
+1   &  0  &  0  & 0   & L   & H   & L  &&&\\ \hline
+1   &  0  &  0  & 1   & L   & L   & H  &&&\\ \hline
+1   &  0  &  1  & 0   & X   & X   & X  &&&\\ \hline
+1   &  0  &  1  & 1   & H   & L   & X  &&&\\ \hline
+1   &  1  &  0  & 0   & L   & H   & H  &&&\\ \hline
+1   &  1  &  0  & 1   & H   & L   & H  &&&\\ \hline
+1   &  1  &  1  & 0   & X   & X   & X  &&&\\ \hline
+1   &  1  &  1  & 1   & H   & H   & X  &&&\\ \hline
+\end{tabular} 
+\caption{Tabela de Teste}
+\end{table}
+\subsubsection{Comentário dos resultados}
+\vspace*{16\baselineskip}
+\section{Conclusão}
 \par
+
 
 \end{document}
 
