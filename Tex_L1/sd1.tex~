@@ -8,6 +8,7 @@
 \usepackage{color}                       % Para tratamento da cor
 \usepackage{fancyhdr}                    % Para cabeçalhos
 \usepackage{url}                         % Para tratar endereços 'url
+\usepackage{lipsum} % for dummy text only
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 \usepackage{graphics}
@@ -15,6 +16,9 @@
 \usepackage{cleveref}
 \usepackage{hyperref}
 \usepackage{fixltx2e}
+\usepackage{tabularx, booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
 
 %%%%%%%%%%% Predefinições de LaTeX do Tamanho da Página %%%%%%%%%%
 
@@ -34,7 +38,9 @@
 \makeindex
 
 \begin{document}
-
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\familydefault}{\sfdefault}
+\fontfamily{lmss}\selectfont
 \title{\bf Relatório de Sistemas Digitais L1\\
 Funções Combinatórias}
 \author{João Oliveira\\
@@ -298,42 +304,53 @@ C_0(0,1,1,0) & = 1\cdot\overline{0} + 0\cdot0 \\
 
 \subsection{Esquema Eléctrico}
 
-\section{Montagem e Verificação}
+
+\begin{figure}[h]
+\caption{Esquema Eléctrico}
+\begin{center}
+\includegraphics[scale=0.65]{SD_elect.png}
+\end{center}
+\end{figure}
+
+\section{Montagem e Teste}
 \subsection{Montagem}
 Montou-se o circuito na {\it breadboard} utilizando os circuitos requisitados.
 \subsection{Utilização da Ponta de Prova}
-\vspace*{7\baselineskip}
+\vspace*{10\baselineskip}
 \subsection{Teste do circuito}
-\vspace*{4\baselineskip}
 
 \begin{table}
 \centering
-\begin{tabular}{ || c  c | c c || c | c  || c | c || }
+%\begin{tabular}{ || c  c | c c || c | c || c | c || }
+\begin{tabularx}{1.1\textwidth}{|| >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X | >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X  | c ||}
+%\begin{tabularx}{\textwidth}{||{\centering}X {\centering}X}|{\centering}X {\centering}X} ||{\centering}X {\centering}X}|| {\centering}X {\centering}X}
 \hline 
-\multicolumn{4}{||c||}{Valores de entrada} & \multicolumn{3}{c||}{Valores Esperados} & \multicolumn{3}{c||}{Valores de Saída} \\
-\hline
-A\textsubscript{1} & A\textsubscript{0} & B\textsubscript{1} & B\textsubscript{0} & S\textsubscript{1} & S\textsubscript{0} & C\textsubscript{0} & S\textsubscript{1} & S\textsubscript{0} & C\textsubscript{0} \\ \hline
-0   & 0  & 0  & 0  & L  & L  & L &&& \\ \hline
-0   & 0  & 0  & 1  & L  & L  & L &&&\\ \hline
-0   & 0  & 1  & 0  & X  & X  & X  &&&\\ \hline
-0   &  0  & 1   & 1   & L   & L   & X &&&\\ \hline
-0   &  1  &  0  & 0   & L   & L   & H  &&&\\ \hline
-0   &  1  &  0  & 1   & H   & L   & L  &&&\\ \hline
-0   &  1  &  1  & 0   & X   & X   & X  &&&\\ \hline
-0   &  1  &  1  & 1   & L   & H   & X  &&&\\ \hline
-1   &  0  &  0  & 0   & L   & H   & L  &&&\\ \hline
-1   &  0  &  0  & 1   & L   & L   & H  &&&\\ \hline
-1   &  0  &  1  & 0   & X   & X   & X  &&&\\ \hline
-1   &  0  &  1  & 1   & H   & L   & X  &&&\\ \hline
-1   &  1  &  0  & 0   & L   & H   & H  &&&\\ \hline
-1   &  1  &  0  & 1   & H   & L   & H  &&&\\ \hline
-1   &  1  &  1  & 0   & X   & X   & X  &&&\\ \hline
-1   &  1  &  1  & 1   & H   & H   & X  &&&\\ \hline
-\end{tabular} 
+\multicolumn{4}{||c||}{Valores de entrada} & \multicolumn{2}{c||}{Valores Esperados} & \multicolumn{2}{c||}{Valores de Saída} \\
+  \hline
+A\textsubscript{1} & A\textsubscript{0} & B\textsubscript{1} & B\textsubscript{0} & S\textsubscript{1} & C\textsubscript{0} & S\textsubscript{1} & C\textsubscript{0} \\ \hline
+0   & 0  & 0  & 0  & L  & L && \\ \hline
+0   & 0  & 0  & 1  & L  & L &&\\ \hline
+0   & 0  & 1  & 0  & X  & X  &&\\ \hline
+0   &  0  & 1   & 1   & L  & X &&\\ \hline
+0   &  1  &  0  & 0   & L  & H  &&\\ \hline
+0   &  1  &  0  & 1   & H  & L  &&\\ \hline
+0   &  1  &  1  & 0   & X  & X  &&\\ \hline
+0   &  1  &  1  & 1   & L  & X  &&\\ \hline
+1   &  0  &  0  & 0   & L  & L  &&\\ \hline
+1   &  0  &  0  & 1   & L  & H  &&\\ \hline
+1   &  0  &  1  & 0   & X  & X  &&\\ \hline
+1   &  0  &  1  & 1   & H  & X  &&\\ \hline
+1   &  1  &  0  & 0   & L  & H  &&\\ \hline
+1   &  1  &  0  & 1   & H  & H  &&\\ \hline
+1   &  1  &  1  & 0   & X  & X  &&\\ \hline
+1   &  1  &  1  & 1   & H  & X  &&\\ \hline
+\end{tabularx}
+%\end{tabular} 
 \caption{Tabela de Teste}
 \end{table}
+\pagebreak
 \subsubsection{Comentário dos resultados}
-\vspace*{16\baselineskip}
+\vspace*{15\baselineskip}
 \section{Conclusão}
 \par
 
