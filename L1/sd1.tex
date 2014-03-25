@@ -41,6 +41,7 @@
 \renewcommand{\sfdefault}{lmss}
 \renewcommand{\familydefault}{\sfdefault}
 \fontfamily{lmss}\selectfont
+
 \title{\bf Relatório de Sistemas Digitais L1\\
 Funções Combinatórias}
 \author{João Oliveira\\
@@ -92,7 +93,7 @@ Estando A, B e S no intervalo [0;3] cada um será representado por dois bits, en
 \centering
 \begin{tabular}{|| c | c | c || c | c | c || c | c | c ||}
 \hline
-A\textsubscript{0} & A\textsubscript{1} & Valor de A & B\textsubscript{0} & B\textsubscript{1} & Valor de B & S\textsubscript{0} & S\textsubscript{1} & Valor de s \\ \hline
+A\textsubscript{0} & A\textsubscript{1} & Valor de A & B\textsubscript{0} & B\textsubscript{1} & Valor de B & S\textsubscript{0} & S\textsubscript{1} & Valor de S \\ \hline
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
 1 & 0 & 2 & 1 & 0 & 2 & 1 & 0 & 2 \\
@@ -304,7 +305,7 @@ C_0(0,1,1,0) & = 1\cdot\overline{0} + 0\cdot0 \\
 \end{equation}
 
 \subsection{Esquema Eléctrico}
-
+Para a realização deste circuito segundo o logigrama previamente apresentado, serão necessários três circuitos integrados: um SN74LS10, com portas NAND-3, e dois SN74LS00. De forma a necessitarmos apenas destes três CIs, concretizaremos cada porta NOT juntando as entradas de uma porta NAND-2. Isto é necessário pois precisamos de 5 portas NAND-2. Caso utilizássemos portas NOT, utilizaríamos 4 CIs, pois precisaríamos dois SN74LS00 de qualquer forma. A não ser que utilizássemos uma porta NAND-3 como NAND-2, porém considerámos mais simples a solução apresentada.
 
 \begin{figure}[h]
 \caption{Esquema Eléctrico}
