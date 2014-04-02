@@ -3,4 +3,5 @@
 *.idx
 *.log
 *.out
-*.synctex.gz
+*synctex*
+*.pdf
