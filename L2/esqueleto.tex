@@ -95,28 +95,6 @@ A\textsubscript{1} & A\textsubscript{0} & B\textsubscript{1} & B\textsubscript{0
 \subsection{Transformação das expressões algébricas}
 
 \subsubsection{De forma a serem concretizadas com portas NAND-2, NAND-3 e NOT}
-\begin{enumerate}
-\item A partir da forma disjuntiva
-\begin{equation}
-\begin{split}
-S_1(A_1,A_0,B_1,B_0) & = A_0\overline{B_1}B_0 + A_1B_1 \\
-                     & = \overline{\overline{((A_0\overline{B_1}B_0)}
-                         ~\overline {(A_1B_1))}}  \\  
-\end{split}
-\end{equation}
-\begin{equation}
-\begin{split}
-C_0(A_1,A_0,B_1,B_0) & = A_0\overline{B_0} + A_1B_0 \\
-                     & = \overline{\overline{((A_0 \overline{B_0})}
-                         ~\overline{(A_1 B_0))}}  \\   
-\end{split}
-\end{equation}
-Requisitos de implementação:
-\begin{enumerate}
-    \item 1x NAND-3
-    \item 5x NAND-2
-    \item 2x NOT
-  \end{enumerate}
 
 
 \subsection{Esquema Eléctrico}
@@ -167,7 +145,7 @@ A\textsubscript{1} & A\textsubscript{0} & B\textsubscript{1} & B\textsubscript{0
 1   &  1  &  1  & 0   & X  & X  &&\\ \hline
 1   &  1  &  1  & 1   & H  & X  &&\\ \hline
 \end{tabularx}
-
+\end{table}
 \begin{table}
 \centering
 \begin{tabularx}{1.1\textwidth}{|| >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X | >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X  | c ||}
@@ -202,7 +180,71 @@ a\textsubscript{3} & a\textsubscript{2} & a\textsubscript{1} & a\textsubscript{0
 \section{Conclusão}
 Com este trabalho teve-se como objectivo a concepção e concretização de um circuito que executa duas funções combinatórias. Para tal utilizou-se os Mapas de Karnaugh para obter as funções como soma de produtos e também como produto de somas para que depois fossem facilmente convertidas para expressões com, exclusivamente portas NAND e NOT ou NOR e NOT. A partir destas expressões escolhemos a mais económica e eficiente de implementar, tendo elaborado o respectivo diagrama lógico e esquema eléctrico após selecção dos circuitos integrados a usar.
 
+\begin{table}
+\centering
+\begin{tabularx}{1.0
+\textwidth}{|| >{\setlength\hsize{1\hsize}\centering}X  || >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X  | >{\centering\arraybackslash}X ||}
+\hline 
+\multicolumn{4}{||c||}{Valores de entrada} & \multicolumn{2}{c||}{Valores Esperados} & \multicolumn{2}{c||}{Valores Obtidos} \\
+  \hline
+a\textsubscript{3} & a\textsubscript{2} & a\textsubscript{1} & a\textsubscript{0} & f\textsubscript{1} & f\textsubscript{0} & f\textsubscript{1} & f\textsubscript{0} \\ \hline
+0   &  0  &  0  & 0   & L  & H  && \\ \hline
+0   &  0  &  0  & 1   & L  & H  &&\\ \hline
+0   &  0  &  1  & 0   & L  & H  &&\\ \hline
+0   &  0  &  1  & 1   & H  & L  &&\\ \hline
+0   &  1  &  0  & 0   & L  & H  &&\\ \hline
+0   &  1  &  0  & 1   & L  & H  &&\\ \hline
+0   &  1  &  1  & 0   & L  & H  &&\\ \hline
+0   &  1  &  1  & 1   & L  & H  &&\\ \hline
+1   &  0  &  0  & 0   & L  & H  &&\\ \hline
+1   &  0  &  0  & 1   & L  & H  &&\\ \hline
+1   &  0  &  1  & 0   & L  & H  &&\\ \hline
+1   &  0  &  1  & 1   & L  & H  &&\\ \hline
+1   &  1  &  0  & 0   & L  & H  &&\\ \hline
+1   &  1  &  0  & 1   & L  & H  &&\\ \hline
+1   &  1  &  1  & 0   & L  & H  &&\\ \hline
+1   &  1  &  1  & 1   & L  & H  &&\\ \hline
+\end{tabularx}
+\caption{Tabela de Testes das Funções}
+\end{table}
 
+\centering
+\begin{tabularx}{1.0
+\textwidth}{|| >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X >{\setlength\hsize{1\hsize}\centering}X || >{\centering\arraybackslash}X  | >{\centering\arraybackslash} X | >{\setlength\hsize{1\hsize}\centering}X | >{\centering\arraybackslash}X ||}
+\hline 
+\multicolumn{5}{||c||}{Valores de entrada} & \multicolumn{4}{c||}{Valores Esperados} & \multicolumn{4}{c||}{Valores Obtidos} \\
+  \hline
+
+I\textsubscript{2} & I\textsubscript{1} & 
+I\textsubscript{0} & 
+
+f\textsubscript{1} & f\textsubscript{0} & 
+
+S\textsubscript{3} & S\textsubscript{2} & 
+S\textsubscript{1} & S\textsubscript{0} &
+ 
+S\textsubscript{3} & S\textsubscript{2} & 
+S\textsubscript{1} & S\textsubscript{0} 
+\\ \hline
+0  & 0  & 0  & X  & 0  & L  & L & L & L &&&& \\ \hline
+0  & 0  & 0  & X  & 1  & L  & L & L & H &&&&\\ \hline
+0  & 0  & 1  & X  & 0  & L  & L & L & L &&&&\\ \hline
+0  & 0  & 1  & X  & 1  & L  & L & H & L &&&&\\ \hline
+0  & 1  & 0  & X  & 0  & L  & L & L & L &&&&\\ \hline
+0  & 1  & 0  & X  & 1  & L  & H & L & L &&&&\\ \hline
+0  & 1  & 1  & X  & 0  & L  & L & L & L &&&&\\ \hline
+0  & 1  & 1  & X  & 1  & H  & L & L & L &&&&\\ \hline
+1  & 0  & 0  & 0  & X  & L  & L & L & L &&&&\\ \hline
+1  & 0  & 0  & 1  & X  & L  & L & L & H &&&&\\ \hline
+1  & 0  & 1  & 0  & X  & L  & L & L & L &&&&\\ \hline
+1  & 0  & 1  & 1  & X  & L  & L & H & L &&&&\\ \hline
+1  & 1  & 0  & 0  & X  & L  & L & L & L &&&&\\ \hline
+1  & 1  & 0  & 1  & X  & L  & H & L & L &&&&\\ \hline
+1  & 1  & 1  & 0  & X  & L  & L & L & L &&&&\\ \hline
+1  & 1  & 1  & 1  & X  & H  & L & L & L &&&&\\ \hline
+\end{tabularx}
+\caption{Tabela de Teste das Saídas}
+\end{table}
 
 \end{document}
 
