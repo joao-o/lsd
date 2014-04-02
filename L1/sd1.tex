@@ -79,8 +79,9 @@ Na operação ``Deslocamento à direita'' cada {\it bit} é movido para a posiç
 \par
 A operação ``Deslocamento à esquerda'' é semelhante, sendo que em cada {\it bit} é movido para a posição à sua esquerda. O {\it bit} mais à esquerda é assim ``perdido'' sendo o retorno de C\textsubscript{0}, já o {\it bit} mais à direita passa a 0. Neste caso, isto resum-se a que S\textsubscript{1} é igual a A\textsubscript{0}, C\textsubscript{0} a A\textsubscript{1} e S\textsubscript{0} é 0.
 \par
-A ``Operação indefinida'' não tem interesse, e como tal o seu retorno é escolhido consoante o mais útil à economização de portas lógicas. 
-A operação ``Identidade'' retorna o mesmo número, sendo que, neste caso, o ``{\it Carry Out}'' não faz sentido, visto não existir deslocamento. Considerámos assim que nesta situação o retorno de C\textsubscript{0} é uma indeterminação ("X"). Para esta operação, então, S\textsubscript{1} será idêntico a S\textsubscript{1} e S\textsubscript{0} idêntico a A\textsubscript{0}.
+A ``Operação indefinida'' não tem interesse, e como tal o seu retorno é indeterminado, sendo posteriormente condicionado pelo o que for mais útil à economização de portas lógicas. 
+\par
+A operação ``Identidade'' retorna o mesmo número, sendo que, neste caso, o ``{\it Carry Out}'' não faz sentido, visto não existir, por definição, {\it bit} perdido. Considerámos assim que nesta situação o retorno de C\textsubscript{0} é, assim, uma indeterminação ("X"), algo que revelar-se-á útil na simplificação das expressões. Para esta operação, então, S\textsubscript{1} será idêntico a A\textsubscript{1} e S\textsubscript{0} idêntico a A\textsubscript{0}.
 \par
 
 Tem-se também como alvo conseguir este circuito utilizando o mínimo de recursos.
