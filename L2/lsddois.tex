@@ -58,10 +58,12 @@ Quinta-Feira LSD1}
 
 \pagebreak
 \section{Introdução}
+A escrever
+
 
 \section{Projecto}
 \subsection{Cálculo das Constantes}
-O número de aluno utilizado foi o 78811, visto ser o de menor valor. Como podemos observar nas divisões apresentadas em seguida, os restos da primeira e segunda divisão por oito, que correspondem aos dois dígitos menos significativos em base oito, são idênticos e de valor 3. 
+O número de aluno utilizado foi o 78811, visto ser o de menor valor. Como podemos observar nas divisões apresentadas em seguida, os restos da primeira e segunda divisão inteira por oito, que correspondem aos dois dígitos menos significativos em base oito, são idênticos e de valor 3. 
 \par
 \vspace*{1\baselineskip}
 \opdiv[maxdivstep=4]{78811}{8}\:\:\:\:\:\: \opdiv[maxdivstep=4]{9851}{8}
@@ -75,7 +77,7 @@ K_1=K_0=3
 \subsubsection{O Circuito}
 O objectivo é construir um circuito que recebe um um número A no intervalo [0;15], representado pelos dígitos binários a\textsubscript{3}, a\textsubscript{2}, a\textsubscript{1} e a\textsubscript{0} (sendo a\textsubscript{3} o {\it bit} mais significativo e a\textsubscript{0} o menos) e três {\it bits} de selecção I\textsubscript{2}, I\textsubscript{1} e I\textsubscript{0}, seleccionando uma de duas funções de A, e uma de quatro saídas, representadas por S\textsubscript{3}, S\textsubscript{2}, S\textsubscript{1} e S\textsubscript{0}, para esta função. A função f\textsubscript{1} é 1 excepto quando quando A = K\textsubscript{1}, enquanto f\textsubscript{0} é 1 apenas quando A = K\textsubscript{0} (este comportamento está apresentado em detalhe na Tabela 1 mais à frente). A função é seleccionada pelo {\it bit} I\textsubscript{2} e a saída pelos {\it bits} I\textsubscript{1} e I\textsubscript{0}, correspondendo cada combinação destes dois {\it bits} à saída cujo número de identificação é representado em binário por I\textsubscript{1}I\textsubscript{0}.
 \par
-\subsubsection{Funções de A a seleccionar}
+\subsubsection{Funções a Seleccionar}
 De forma a realizarmos as funções concluímos que o mais simples seria utilizarmos um {\it decoder} 3:8. Como as constantes são inferiores a 8, ligamos a\textsubscript{3} às duas entradas negadas do {\it enable}. Assim, como A é certamente diferente de K quando a\textsubscript{3} tem valor "1", o {\it decoder} fica inactivo nesta situação (como os {\it decoders} utilizados no laboratório têm as saídas negadas isto corresponde a que todos as saídas estejam em {\it ``high''}). A entrada positiva do enable é ligada ao VCC de forma a estar sempre no valor "1". 
 \par
 Os restantes dígitos de A são ligados às entradas do {\it decoder} para que, quando a\textsubscript{3} tem valor "0", a saída activa corresponda ao valor de A. Como f\textsubscript{1} tem valor "1" sempre que A é distinto de K\textsubscript{1} ligamos esta função à saída do {\it decoder} de número K\textsubscript{1}. Analogamente ligamos f\textsubscript{0} à saída K\textsubscript{0} com uma porta NOT.
@@ -95,18 +97,13 @@ Assim, ligamos a saídas dos {\it buffers} às duas entradas negadas do {\it ena
 \subsection{Esquema elétrico}
 \includegraphics[scale=.1]{esqelect.eps}
 
-\subsection{Transformação das expressões algébricas}
-
-\subsubsection{De forma a serem concretizadas com portas NAND-2, NAND-3 e NOT}
-
-
 \section{Montagem e Teste}
 \subsection{Montagem}
 Montou-se o circuito na {\it breadboard} utilizando os circuitos requisitados.
-\subsection{Utilização da Ponta de Prova}
-%\vspace*{10\baselineskip}
+
 \pagebreak
 \subsection{Teste do circuito}
+%\vspace*{10\baselineskip}
 
 \begin{table}
 \centering
@@ -177,14 +174,7 @@ S\textsubscript{1} & S\textsubscript{0}
 \end{table}
 
 \section{Conclusão}
-Com este trabalho teve-se como objectivo a concepção e concretização de um
-circuito que executa duas funções combinatórias. Para tal utilizou-se os Mapas
-de Karnaugh para obter as funções como soma de produtos e também como produto de
-somas para que depois fossem facilmente convertidas para expressões com, 
-exclusivamente portas NAND e NOT ou NOR e NOT. A partir destas expressões 
-escolhemos a mais económica e eficiente de implementar, tendo elaborado o 
-respectivo diagrama lógico e esquema eléctrico após selecção dos circuitos 
-integrados a usar.
+A escrever
 
 \end{document}
 
