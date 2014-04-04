@@ -24,15 +24,15 @@
 
 %%%%%%%%%%% Predefinições de LaTeX do Tamanho da Página %%%%%%%%%%
 
-\oddsidemargin = 30pt                    % Margem do lado esquerdo: 31pt
-\topmargin = 18pt                        % Margem superior: 20pt  
-\headheight = 12pt                       % Tamanho do 'header': 12pt 
-\headsep = 25pt                          % Espaço entre o 'header' e o texto: 25pt
-\textheight = 592pt                      % Altura do texto: 592pt
-\textwidth = 390pt                       % Largura do texto: 390pt
-\marginparsep = 10pt                     % Espaço entre margem esquerda e o texto: 10pt
-\marginparwidth = 35pt                   % Margem esquerda: 35pt
-\footskip = 20pt                         % Espaço entre o texto e o 'footer': 30pt
+\oddsidemargin = 30pt            % Margem do lado esquerdo: 31pt
+\topmargin = 18pt                % Margem superior: 20pt  
+\headheight = 12pt               % Tamanho do 'header': 12pt 
+\headsep = 25pt                  % Espaço entre o 'header' e o texto: 25pt
+\textheight = 592pt              % Altura do texto: 592pt
+\textwidth = 390pt               % Largura do texto: 390pt
+\marginparsep = 10pt             % Espaço entre margem esquerda e o texto: 10pt
+\marginparwidth = 35pt           % Margem esquerda: 35pt
+\footskip = 20pt                 % Espaço entre o texto e o 'footer': 30pt
 
 \input epsf
 
@@ -65,7 +65,10 @@ Também são apresentados os resultados verificados em laboratório após a mont
 
 \section{Projecto}
 \subsection{Cálculo das Constantes}
-O número de aluno utilizado foi o 78811, visto ser o de menor valor. Como podemos observar nas divisões apresentadas em seguida, os restos da primeira e segunda divisão inteira por oito, que correspondem aos dois dígitos menos significativos em base oito, são idênticos e de valor 3. 
+O número de aluno utilizado foi o 78811, visto ser o de menor valor. Como 
+podemos observar nas divisões apresentadas em seguida, os restos da primeira e 
+segunda divisão inteira por oito, que correspondem aos dois dígitos menos 
+significativos em base oito, são idênticos e de valor 3. 
 \par
 \vspace*{1\baselineskip}
 \hspace{20pt} \opdiv[maxdivstep=4]{78811}{8} \hspace{60pt} \opdiv[maxdivstep=4]{9851}{8}
@@ -77,7 +80,21 @@ K_1=K_0=3
 \end{equation}
 \subsection{Diagrama Lógico}
 \subsubsection{O Circuito}
-O objectivo é construir um circuito que recebe um um número A no intervalo [0;15], representado pelos dígitos binários a\textsubscript{3}, a\textsubscript{2}, a\textsubscript{1} e a\textsubscript{0} (sendo a\textsubscript{3} o {\it bit} mais significativo e a\textsubscript{0} o menos) e três {\it bits} de selecção I\textsubscript{2}, I\textsubscript{1} e I\textsubscript{0}, seleccionando uma de duas funções de A, e uma de quatro saídas, representadas por S\textsubscript{3}, S\textsubscript{2}, S\textsubscript{1} e S\textsubscript{0}, para esta função. A função f\textsubscript{1} é 1 excepto quando quando A = K\textsubscript{1}, enquanto f\textsubscript{0} é 1 apenas quando A = K\textsubscript{0} (este comportamento está apresentado em detalhe na Tabela 1 mais à frente). A função é seleccionada pelo {\it bit} I\textsubscript{2} e a saída pelos {\it bits} I\textsubscript{1} e I\textsubscript{0}, correspondendo cada combinação destes dois {\it bits} à saída cujo número de identificação é representado em binário por I\textsubscript{1}I\textsubscript{0}.
+O objectivo é construir um circuito que recebe um um número A no intervalo 
+[0;15], representado pelos dígitos binários a\textsubscript{3}, 
+a\textsubscript{2}, a\textsubscript{1} e a\textsubscript{0} (sendo 
+a\textsubscript{3} o {\it bit} mais significativo e a\textsubscript{0} o menos) 
+e três {\it bits} de selecção I\textsubscript{2}, I\textsubscript{1} e 
+I\textsubscript{0}, seleccionando uma de duas funções de A, e uma de quatro 
+saídas, representadas por S\textsubscript{3}, S\textsubscript{2}, 
+S\textsubscript{1} e S\textsubscript{0}, para esta função. A função 
+f\textsubscript{1} é 1 excepto quando quando A = K\textsubscript{1}, enquanto 
+f\textsubscript{0} é 1 apenas quando A = K\textsubscript{0} (este 
+comportamento está apresentado em detalhe na Tabela 1 mais à frente). A 
+função é seleccionada pelo {\it bit} I\textsubscript{2} e a saída pelos 
+{\it bits} I\textsubscript{1} e I\textsubscript{0}, correspondendo cada 
+combinação destes dois {\it bits} à saída cujo número de identificação 
+é representado em binário por I\textsubscript{1}I\textsubscript{0}.
 \par
 \subsubsection{Funções a Seleccionar}
 De forma a realizarmos as funções concluímos que o mais simples seria utilizarmos um {\it decoder} 3:8. Este circuito recebe três {\it bits} de selecção e três para o {\it enable} e tem oito saídas, numeradas de 0 a 7. Quando o {\it enable} tem valor 3 (estando duas entradas negadas isto corresponde a ``1'' na entrada positiva e ``0'' na entrada negativa), a saída cujo número corresponde ao número codificado nos {\it bits} de selecção fica activa. Nos {\it decoders} usados, que têm as saídas negadas, isto corresponde a ter a saída seleccionada em {\it ``low''} e as restantes em {\it ``high''}. Caso o {\it enable} não seja igual a 3, todas as saídas estão inactivas em  {\it ``high''}.
@@ -86,7 +103,12 @@ Como as constantes são inferiores a 8, ligamos a\textsubscript{3} às duas entr
 \par
 Os restantes dígitos de A são ligados às entradas do {\it decoder} para que, quando a\textsubscript{3} tem valor ``0'', a saída seleccionada corresponda ao valor de A. Como f\textsubscript{1} tem valor ``1''  sempre que A é distinto de K\textsubscript{1} ligamos esta função à saída do {\it decoder} de número K\textsubscript{1}, que está negada. Analogamente ligamos f\textsubscript{0} à saída K\textsubscript{0} com uma porta NOT.
 \par
-Neste caso, como ambas as constantes são 3, isto corresponde a ligar f\textsubscript{1} directamente à saída 3 deste {\it decoder} e f\textsubscript{0} a uma porta NOT ligada a esta mesma saída. Estas funções poderiam também ser concretizadas com portas lógicas, como portas NAND ou NOR, porém tal não levaria nem a um menor número de circuitos integrados utilizados nem a uma simplificação da montagem.
+Neste caso, como ambas as constantes são 3, isto corresponde a ligar 
+f\textsubscript{1} directamente à saída 3 deste {\it decoder} e 
+f\textsubscript{0} a uma porta NOT ligada a esta mesma saída. Estas funções 
+poderiam também ser concretizadas com portas lógicas, como portas NAND ou 
+NOR, porém tal não levaria nem a um menor número de circuitos integrados 
+utilizados nem a uma simplificação da montagem.
 \par
 
 \begin{figure}
