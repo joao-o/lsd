@@ -22,18 +22,6 @@
 \usepackage{geometry}
 \usepackage{xlop}
 
-%%%%%%%%%%% Predefinições de LaTeX do Tamanho da Página %%%%%%%%%%
-
-\oddsidemargin = 30pt            % Margem do lado esquerdo: 31pt
-\topmargin = 18pt                % Margem superior: 20pt  
-\headheight = 12pt               % Tamanho do 'header': 12pt 
-\headsep = 25pt                  % Espaço entre o 'header' e o texto: 25pt
-\textheight = 592pt              % Altura do texto: 592pt
-\textwidth = 390pt               % Largura do texto: 390pt
-\marginparsep = 10pt             % Espaço entre margem esquerda e o texto: 10pt
-\marginparwidth = 35pt           % Margem esquerda: 35pt
-\footskip = 20pt                 % Espaço entre o texto e o 'footer': 30pt
-
 \input epsf
 
 \makeindex
@@ -51,7 +39,7 @@ Tomás A. Reis\\
 \\
 Instituto Superior Técnico \\
 Universidade de Lisboa}
-\date{21 de Março de 2014 \\
+\date{10 de Abril de 2014 \\
 Quinta-Feira LSD1}
 \maketitle
 
@@ -97,7 +85,7 @@ combinação destes dois {\it bits} à saída cujo número de identificação
 é representado em binário por I\textsubscript{1}I\textsubscript{0}.
 \par
 \subsubsection{Funções a Seleccionar}
-De forma a realizarmos as funções concluímos que o mais simples seria utilizarmos um {\it decoder} 3:8. Este circuito recebe três {\it bits} de selecção e três para o {\it enable} e tem oito saídas, numeradas de 0 a 7. Quando o {\it enable} tem valor 3 (estando duas entradas negadas isto corresponde a ``1'' na entrada positiva e ``0'' na entrada negativa), a saída cujo número corresponde ao número codificado nos {\it bits} de selecção fica activa. Nos {\it decoders} usados, que têm as saídas negadas, isto corresponde a ter a saída seleccionada em {\it ``low''} e as restantes em {\it ``high''}. Caso o {\it enable} não seja igual a 3, todas as saídas estão inactivas em  {\it ``high''}.
+De forma a realizarmos as funções concluímos que o mais simples seria utilizarmos um {\it decoder} 3:8. Este circuito recebe três {\it bits} de selecção e três para o {\it enable} e tem oito saídas, numeradas de 0 a 7. Quando o {\it enable} tem valor 3 (estando duas entradas negadas isto corresponde a ``1'' na entrada positiva e ``0'' nas entradas negativas), a saída cujo número corresponde ao número codificado nos {\it bits} de selecção fica activa. Nos {\it decoders} usados, que têm as saídas negadas, isto corresponde a ter a saída seleccionada em {\it ``low''} e as restantes em {\it ``high''}. Caso o {\it enable} não seja igual a 3, todas as saídas estão inactivas em  {\it ``high''}.
 \par
 Como as constantes são inferiores a 8, ligamos a\textsubscript{3} às duas entradas negadas do {\it enable}. Assim, como A é certamente diferente de K quando a\textsubscript{3} tem valor ``1'', o {\it decoder} fica inactivo nesta situação. A entrada positiva do enable é ligada ao VCC de forma a estar sempre no valor ``1''. 
 \par
@@ -163,38 +151,38 @@ Montou-se o circuito na {\it breadboard} utilizando os circuitos requisitados.
 \centering
 \begin{tabularx}{1.0\textwidth}
 {|| >{\setlength\hsize{1\hsize}\centering}X 
-   >{\setlength\hsize{1\hsize}\centering}X 
-   >{\setlength\hsize{1\hsize}\centering}X 
-   >{\setlength\hsize{1\hsize}\centering}X 
-|| >{\setlength\hsize{1\hsize}\centering}X 
-   >{\setlength\hsize{1\hsize}\centering}X 
-|| >{\setlength\hsize{1\hsize}\centering}X  
-|  >{\centering\arraybackslash}X           ||}
+    >{\setlength\hsize{1\hsize}\centering}X 
+    >{\setlength\hsize{1\hsize}\centering}X 
+    >{\setlength\hsize{1\hsize}\centering}X 
+ || >{\setlength\hsize{1\hsize}\centering}X 
+    >{\setlength\hsize{1\hsize}\centering}X 
+ || >{\setlength\hsize{1\hsize}\centering}X  
+ |  >{\centering\arraybackslash}X           ||}
 \hline 
 \multicolumn{4}{||c||}{Valores de entrada} &
-\multicolumn{2}{c||}{Valores Esperados}    &
-\multicolumn{2}{c||}{Valores Obtidos} \\
+\multicolumn{2}{  c||}{Valores Esperados}    &
+\multicolumn{2}{  c||}{Valores Obtidos} \\
   \hline
 a\textsubscript{3} & a\textsubscript{2} & 
 a\textsubscript{1} & a\textsubscript{0} & 
 f\textsubscript{1} & f\textsubscript{0} & 
 f\textsubscript{1} & f\textsubscript{0} \\ \hline
-0   &  0  &  0  & 0   & L  & H  && \\ \hline
-0   &  0  &  0  & 1   & L  & H  &&\\ \hline
-0   &  0  &  1  & 0   & L  & H  &&\\ \hline
-0   &  0  &  1  & 1   & H  & L  &&\\ \hline
-0   &  1  &  0  & 0   & L  & H  &&\\ \hline
-0   &  1  &  0  & 1   & L  & H  &&\\ \hline
-0   &  1  &  1  & 0   & L  & H  &&\\ \hline
-0   &  1  &  1  & 1   & L  & H  &&\\ \hline
-1   &  0  &  0  & 0   & L  & H  &&\\ \hline
-1   &  0  &  0  & 1   & L  & H  &&\\ \hline
-1   &  0  &  1  & 0   & L  & H  &&\\ \hline
-1   &  0  &  1  & 1   & L  & H  &&\\ \hline
-1   &  1  &  0  & 0   & L  & H  &&\\ \hline
-1   &  1  &  0  & 1   & L  & H  &&\\ \hline
-1   &  1  &  1  & 0   & L  & H  &&\\ \hline
-1   &  1  &  1  & 1   & L  & H  &&\\ \hline
+0  & 0  & 0  & 0  & L  & H  && \\ \hline
+0  & 0  & 0  & 1  & L  & H  &&\\ \hline
+0  & 0  & 1  & 0  & L  & H  &&\\ \hline
+0  & 0  & 1  & 1  & H  & L  &&\\ \hline
+0  & 1  & 0  & 0  & L  & H  &&\\ \hline
+0  & 1  & 0  & 1  & L  & H  &&\\ \hline
+0  & 1  & 1  & 0  & L  & H  &&\\ \hline
+0  & 1  & 1  & 1  & L  & H  &&\\ \hline
+1  & 0  & 0  & 0  & L  & H  &&\\ \hline
+1  & 0  & 0  & 1  & L  & H  &&\\ \hline
+1  & 0  & 1  & 0  & L  & H  &&\\ \hline
+1  & 0  & 1  & 1  & L  & H  &&\\ \hline
+1  & 1  & 0  & 0  & L  & H  &&\\ \hline
+1  & 1  & 0  & 1  & L  & H  &&\\ \hline
+1  & 1  & 1  & 0  & L  & H  &&\\ \hline
+1  & 1  & 1  & 1  & L  & H  &&\\ \hline
 \end{tabularx}
 \caption{Tabela de Testes das Funções}
 \end{table}
@@ -217,44 +205,41 @@ f\textsubscript{1} & f\textsubscript{0} \\ \hline
  |  >{\centering\arraybackslash}X ||}
 \hline 
 \multicolumn{5}{||c||}{Valores de entrada} & 
-\multicolumn{4}{c||}{Valores Esperados} & 
-\multicolumn{4}{c||}{Valores Obtidos} \\
+\multicolumn{4}{  c||}{Valores Esperados} & 
+\multicolumn{4}{  c||}{Valores Obtidos} \\
 \hline
 
 I\textsubscript{2} & I\textsubscript{1} & 
 I\textsubscript{0} & 
-
 f\textsubscript{1} & f\textsubscript{0} & 
-
 S\textsubscript{3} & S\textsubscript{2} & 
 S\textsubscript{1} & S\textsubscript{0} &
- 
 S\textsubscript{3} & S\textsubscript{2} & 
 S\textsubscript{1} & S\textsubscript{0} 
 \\ \hline
-0  & 0  & 0  & X  & 0  & H  & H & H & L &&&& \\ \hline
-0  & 0  & 0  & X  & 1  & H  & H & H & H &&&&\\ \hline
-0  & 0  & 1  & X  & 0  & H  & H & L & H &&&&\\ \hline
-0  & 0  & 1  & X  & 1  & H  & H & H & H &&&&\\ \hline
-0  & 1  & 0  & X  & 0  & H  & L & H & H &&&&\\ \hline
-0  & 1  & 0  & X  & 1  & H  & H & H & H &&&&\\ \hline
-0  & 1  & 1  & X  & 0  & L  & H & H & H &&&&\\ \hline
-0  & 1  & 1  & X  & 1  & H  & H & H & H &&&&\\ \hline
-1  & 0  & 0  & 0  & X  & H  & H & H & L &&&&\\ \hline
-1  & 0  & 0  & 1  & X  & H  & H & H & H &&&&\\ \hline
-1  & 0  & 1  & 0  & X  & H  & H & L & H &&&&\\ \hline
-1  & 0  & 1  & 1  & X  & H  & H & H & H &&&&\\ \hline
-1  & 1  & 0  & 0  & X  & H  & L & H & H &&&&\\ \hline
-1  & 1  & 0  & 1  & X  & H  & H & H & H &&&&\\ \hline
-1  & 1  & 1  & 0  & X  & L  & H & H & H &&&&\\ \hline
-1  & 1  & 1  & 1  & X  & H  & H & H & H &&&&\\ \hline
+0  & 0  & 0  & X  & 0  & H  & H  & H  & L  &&&& \\ \hline
+0  & 0  & 0  & X  & 1  & H  & H  & H  & H  &&&&\\ \hline
+0  & 0  & 1  & X  & 0  & H  & H  & L  & H  &&&&\\ \hline
+0  & 0  & 1  & X  & 1  & H  & H  & H  & H  &&&&\\ \hline
+0  & 1  & 0  & X  & 0  & H  & L  & H  & H  &&&&\\ \hline
+0  & 1  & 0  & X  & 1  & H  & H  & H  & H  &&&&\\ \hline
+0  & 1  & 1  & X  & 0  & L  & H  & H  & H  &&&&\\ \hline
+0  & 1  & 1  & X  & 1  & H  & H  & H  & H  &&&&\\ \hline
+1  & 0  & 0  & 0  & X  & H  & H  & H  & L  &&&&\\ \hline
+1  & 0  & 0  & 1  & X  & H  & H  & H  & H  &&&&\\ \hline
+1  & 0  & 1  & 0  & X  & H  & H  & L  & H  &&&&\\ \hline
+1  & 0  & 1  & 1  & X  & H  & H  & H  & H  &&&&\\ \hline
+1  & 1  & 0  & 0  & X  & H  & L  & H  & H  &&&&\\ \hline
+1  & 1  & 0  & 1  & X  & H  & H  & H  & H  &&&&\\ \hline
+1  & 1  & 1  & 0  & X  & L  & H  & H  & H  &&&&\\ \hline
+1  & 1  & 1  & 1  & X  & H  & H  & H  & H  &&&&\\ \hline
 \end{tabularx}
 \caption{Tabela de Teste das Saídas}
 \end{table}
 \pagebreak
 
 \section{Conclusão}
-A escrever
+
 
 \end{document}
 
