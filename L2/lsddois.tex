@@ -86,16 +86,17 @@ e três {\it bits} de selecção I\textsubscript{2}, I\textsubscript{1} e
 I\textsubscript{0}, seleccionando uma de duas funções de A, e uma de quatro 
 saídas, representadas por S\textsubscript{3}, S\textsubscript{2}, 
 S\textsubscript{1} e S\textsubscript{0}, para esta função. A função 
-f\textsubscript{1} é 1 excepto quando quando A = K\textsubscript{1}, enquanto 
-f\textsubscript{0} é 1 apenas quando A = K\textsubscript{0} (este 
-comportamento está apresentado em detalhe na Tabela 1 mais à frente). A 
+f\textsubscript{1} é ``1'' excepto quando A = K\textsubscript{1}, enquanto 
+f\textsubscript{0} é ``1'' apenas quando A = K\textsubscript{0}. A 
 função é seleccionada pelo {\it bit} I\textsubscript{2} e a saída pelos 
 {\it bits} I\textsubscript{1} e I\textsubscript{0}, correspondendo cada 
 combinação destes dois {\it bits} à saída cujo número de identificação 
 é representado em binário por I\textsubscript{1}I\textsubscript{0}.
 \par
 \subsubsection{Funções a Seleccionar}
-De forma a realizarmos as funções concluímos que o mais simples seria 
+As duas funções a seleccionar dependem do valor de A, sendo que a primeira função f\textsubscript{1} tem valor ``0'' apenas quando A igual a uma constante K\textsubscript{1}, enquanto f\textsubscript{0} é 1 apenas quando A é igual a uma constante K\textsubscript{0}.
+\par
+De forma a realizarmos estas funções concluímos que o mais simples seria 
 utilizarmos um {\it decoder} 3:8. Este circuito recebe três {\it bits} de 
 selecção e três para o {\it enable} e tem oito saídas, numeradas de 0 a 7. 
 Quando o {\it enable} tem valor 3 (estando duas entradas negadas isto 
@@ -153,6 +154,45 @@ f\textsubscript{0} caso contrário. Esta parte do circuito também poderia ter
 sido realizada com portas NAND, mas tal requereria maior complexidade de 
 montagem.
 \par
+\subsubsection{Selecção da Função Alternativo}
+Para a selecção das funções com o dígito I\textsubscript{2} optámos por uma selecção com lógica simples. Uma solução alternativa com {\it buffers tri-state} seria possível e utilizaria ligeiramente menos portas lógicas, porém corria o risco de curto-circuito sem trazer vantagens substanciais, visto nem traduzir um número de circuitos integrados diferente. 
+\par
+A função seleccionada f\textsubscript{s} deve ter o valor de f\textsubscript{1} quando I\textsubscript{2} é ```1'' e o valor de f\textsubscript{0} quando I\textsubscript{2} é ``0''. Isto fica traduzido pela seguinte expressão algébrica:
+\begin{equation}
+\begin{split}
+f_s(f_1,f_0,I_2) & = I_2f_1+\overline{I_2}f_0 \\
+                     & = \overline{(\overline{(I_2f_1)}\cdot\overline {(\overline{I_2}f_0)})}  \\  
+\end{split}
+\end{equation}
+Que como, apresentado, é facilmente implementado com três portas NAND-2 e uma porta NOT. Apresenta-se na Tabela 1 a tabela de verdade desta função f\textsubscript{s} para corroboração de que obtém o pretendido.
+\par
+\begin{table}
+\centering
+\begin{tabularx}{0.75\textwidth}
+{|| >{\setlength\hsize{1\hsize}\centering}X 
+ |   >{\setlength\hsize{0.5\hsize}\centering}X 
+    >{\setlength\hsize{0.5\hsize}\centering}X 
+ || >{\centering\arraybackslash}X           ||}
+\hline 
+\multicolumn{1}{||c |}{{\it Bit} de Selecção} &
+\multicolumn{2}{  c||}{Valores das Funções} &
+\multicolumn{1}{  c||}{Valor da Saída} \\
+  \hline
+I\textsubscript{2} & f\textsubscript{1} & 
+f\textsubscript{o} & f\textsubscript{s} \\ \hline
+0  & 0  & 0  & 0\\ \hline
+0  & 0  & 1  & 1\\ \hline
+0  & 1  & 0  & 0\\ \hline
+0  & 1  & 1  & 1\\ \hline
+1  & 0  & 0  & 0\\ \hline
+1  & 0  & 1  & 0\\ \hline
+1  & 1  & 0  & 1\\ \hline
+1  & 1  & 1  & 1\\ \hline
+
+\end{tabularx}
+\caption{Tabela da Função de Selecção}
+\end{table}
+
 \subsubsection{Selecção de Saída}
 Por fim, a selecção de saída é a tarefa típica de uma {\it demultiplexer} 
 e como tal utilizaremos outro {\it decoder} com {\it enable}, circuito 
@@ -173,14 +213,14 @@ as saídas inactivas estão em {\it ``high''} (o contrário podia facilmente
 ser obtido com uma porta NOT em cada saída, porém aumentaria 
 desnecessariamente o número de CIs). 
 \par
-Assim, ligamos a saídas dos {\it buffers} às duas entradas negadas do {\it 
+Assim, ligamos a saídas da selecção de funções às duas entradas negadas do {\it 
 enable} (e a entrada positiva ao VCC). Desta forma, quando este sinal, que 
 corresponde à função seleccionada, tiver valor ``0'', a saída escolhida 
 estará em {\it ``low''}, pois o {\it enable} estará activo, e as restantes 
 estarão inactivas (em {\it ``high''}). Já quando o valor da função for 
 ``1'', o {\it enable} é desactivado colocando a saída seleccionada (bem como 
 as restantes) estará a {\it ``high''}. Tal corresponde ao pretendido. (Este 
-comportamento também está expresso na Tabela 2 na secção ``Teste do 
+comportamento também está expresso na Tabela 3 na secção ``Teste do 
 Circuito'').
 \par
 Na Figura 1 está desenhado o diagrama lógico do circuito como aqui descrito.
@@ -302,7 +342,7 @@ S\textsubscript{1} & S\textsubscript{0}
 \pagebreak
 
 \section{Conclusão}
-
+Neste trabalho concebeu-se e montou-se um circuito capaz de executar duas funções de um número A, seleccionar uma destas e apresentá-la numa saída seleccionada entre quatro. Para tal, encontrou-se um equilíbrio de utilização de circuitos integrados utilizando tanto funções mais complexas, como os {\it decoders}, e portas lógicas mais simples, como as portas NAND-2 e NOT. Verificou-se que uma solução com a utilização de dois {\it decoders}, um para obter as funções e outro para seleccionar as saídas, e de três portas NAND-2 para a selecção da função, bem como portas NOT adicionais, concretizava a tarefa de forma eficiente. Esta foi a solução montada em laboratório.
 
 \end{document}
 
