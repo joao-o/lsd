@@ -154,6 +154,39 @@ f\textsubscript{0} caso contrário. Esta parte do circuito também poderia ter
 sido realizada com portas NAND, mas tal requereria maior complexidade de 
 montagem.
 \par
+
+\subsubsection{Selecção de Saída}
+Por fim, a selecção de saída é a tarefa típica de uma {\it demultiplexer} 
+e como tal utilizaremos outro {\it decoder} com {\it enable}, circuito 
+equivalente. Este {\it decoder} é idêntico ao {\it decoder} 3:8 descrito 
+anteriormente para as funções a seleccionar.
+\par 
+Os {\it bits} I\textsubscript{1} e I\textsubscript{0} são ligados às entradas 
+de selecção do {\it decoder} de valor menos significativo e a entrada mais 
+significativa ao GND. Transformamos, efectivamente, o {\it decoder} 3:8 num 
+{\it decoder} 2:4, visto que apenas as quatro primeiras saídas (ligadas a 
+S\textsubscript{3}, S\textsubscript{2}, S\textsubscript{1} e 
+S\textsubscript{0}) poderão ser seleccionadas consoante o valor dos dois {\it 
+bits} de seleccção, I\textsubscript{1} e I\textsubscript{0}. Tal ocorre pois 
+o {\it bit} mais significativo terá sempre valor ``0'', limitando o {\it 
+input} de selecção ao intervalo [0;3]. Como os {\it decoders} disponíveis 
+têm as saídas negadas, considerar-se-á, para efeitos de simplificação, que 
+as saídas inactivas estão em {\it ``high''} (o contrário podia facilmente 
+ser obtido com uma porta NOT em cada saída, porém aumentaria 
+desnecessariamente o número de CIs). 
+\par
+Assim, ligamos a saídas da selecção de funções às duas entradas negadas do {\it 
+enable} (e a entrada positiva ao VCC). Desta forma, quando este sinal, que 
+corresponde à função seleccionada, tiver valor ``0'', a saída escolhida 
+estará em {\it ``low''}, pois o {\it enable} estará activo, e as restantes 
+estarão inactivas (em {\it ``high''}). Já quando o valor da função for 
+``1'', o {\it enable} é desactivado colocando a saída seleccionada (bem como 
+as restantes) estará a {\it ``high''}. Tal corresponde ao pretendido. (Este 
+comportamento também está expresso na Tabela 3 na secção ``Teste do 
+Circuito'').
+\par
+Na Figura 1 está desenhado o diagrama lógico do circuito como aqui descrito.
+
 \subsubsection{Selecção da Função Alternativo}
 Para a selecção das funções com o dígito I\textsubscript{2} optámos por uma selecção com lógica simples. Uma solução alternativa com {\it buffers tri-state} seria possível e utilizaria ligeiramente menos portas lógicas, porém corria o risco de curto-circuito sem trazer vantagens substanciais, visto nem traduzir um número de circuitos integrados diferente. 
 \par
